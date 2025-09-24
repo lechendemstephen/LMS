@@ -1,0 +1,51 @@
+
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<body>
+<div class="container">
+<div class="header">
+<h1>Courses</h1>
+<form class="search" action="#">
+<input type="search" placeholder="Search courses…" />
+<button class="btn" type="submit">Search</button>
+</form>
+</div>
+
+
+<ul class="grid">
+
+{% for course in courses %}
+<li class="card">
+<a href="{% url 'course_detail' course.id %}">
+<div class="card-image">
+<img src="{% static "image/courses/python.png" %}" alt="Python Foundations">
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="pill beginner">{{ course.level }}</span>
+<span class="muted">By {{ course.instructor }}</span>
+</div>
+<h2 class="card-title">{{ course.title}}</h2>
+<p class="card-desc">{{ course.description }}</p>
+</div>
+<div class="card-footer">
+<span class="muted">{{ course.created_at }}</span>
+<span>View →</span>
+</div>
+</a>
+</li>
+{% endfor %}
+<!-- Duplicate <li class="card"> blocks for more courses -->
+</ul>
+
+
+<nav class="pager">
+<button class="btn ghost">Previous</button>
+<span class="info">Page 1 of 5</span>
+<button class="btn">Next</button>
+</nav>
+</div>
+</body>
+
+{% endblock %}

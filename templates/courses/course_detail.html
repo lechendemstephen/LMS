@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<body>
+<div class="container">
+<header class="course-header">
+<h1>Django for the Web</h1>
+<div class="meta">
+<span class="pill intermediate">Intermediate</span>
+<span>By Jamie Lin</span>
+<span>Updated 2 weeks ago</span>
+</div>
+<button class="btn">Enroll</button>
+</header>
+
+
+<div class="course-image">
+<img src="{% static "image/courses/python.png" %}" alt="Python Foundations">
+</div>
+
+
+<p class="lead">Build server‑rendered web apps with clean models, class‑based views, and templates. Ship a blog, a small shop, and an auth‑protected dashboard.</p>
+
+
+<section class="panel">
+<h2>Curriculum</h2>
+<ol class="sections">
+<li class="section">
+<h3>Getting Started</h3>
+<ol class="lessons">
+<li class="lesson"><a href="#">Project Setup &amp; Settings</a> • 12m</li>
+<li class="lesson"><a href="#">URL Routing &amp; Views</a> • 15m</li>
+<li class="lesson"><a href="#">Templates Primer</a> • 10m</li>
+</ol>
+</li>
+<li class="section">
+<h3>Models &amp; Admin</h3>
+<ol class="lessons">
+<li class="lesson"><a href="#">Designing Models</a> • 20m</li>
+<li class="lesson"><a href="#">Admin Customization</a> • 18m</li>
+</ol>
+</li>
+</ol>
+</section>
+</div>
+</body>
+
+
+
+
+{% endblock%}
