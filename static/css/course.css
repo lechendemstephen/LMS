@@ -42,3 +42,15 @@ h1{font-size:28px;margin:0}
 .lesson a{color:var(--accent);text-decoration:none}
 .lesson a:hover{text-decoration:underline}
 .course-image img{width:100%;max-height:280px;object-fit:cover;border-radius:12px;margin:16px 0}
+
+/* Auth pages */
+.auth-page{display:grid;place-items:center;min-height:calc(100vh - 80px)}
+.auth-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);width:min(520px,92vw);display:grid;gap:14px}
+.form{display:grid;gap:12px}
+.field{display:grid;gap:6px}
+.field > span{font-size:14px;color:var(--muted)}
+.field input{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0d1530;color:var(--text)}
+.checkbox{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px}
+.row{display:flex;gap:12px}
+.row.between{justify-content:space-between;align-items:center}
+.center{text-align:center}

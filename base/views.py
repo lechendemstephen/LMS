@@ -24,3 +24,18 @@ def course_detail(request, course_id):
     }
 
     return render(request, 'courses/course_detail.html', context)
+
+
+# authentication 
+
+def signup(request):
+
+
+    return render(request, 'authentication/signup.html')
+
+
+
+def login(request):
+
+
+    return render(request, 'authentication/login.html')

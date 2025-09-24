@@ -2,6 +2,29 @@
 {% extends "base/base.html" %}
 {% load static %}
 {% block content %}
+
+
+<!-- Header with Auth -->
+<header class="site-header">
+<div class="nav container">
+<div class="auth">
+<!-- State A: logged out (default) -->
+<a class="btn ghost" href="{% url 'login' %}">Sign in</a>
+<a class="btn" href="{% url 'signup' %}">Create account</a>
+<!-- State B: logged in (uncomment to preview)
+<div class="user">
+<img class="avatar" src="images/avatar.png" alt="User"/>
+<span class="username">Stephen</span>
+<div class="menu">
+<a href="#">Dashboard</a>
+<a href="#">My Courses</a>
+<a href="#">Sign out</a>
+</div>
+</div>
+-->
+</div>
+</div>
+</header>
 <body>
 <div class="container">
 <div class="header">
