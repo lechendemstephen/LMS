@@ -26,7 +26,7 @@ class Course(models.Model):
         (ADVANCED, "ADVANCED"),
     ]
 
-    title = models.CharField(blank=True)
+    title = models.CharField(blank=True, max_length=50)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='courses', blank=True)
     level = models.CharField(max_length=20, choices=LEVEL, default=BEGINNER)
