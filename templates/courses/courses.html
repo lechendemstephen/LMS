@@ -10,7 +10,7 @@
 <div class="auth">
 <!-- State A: logged out (default) -->
 <a class="btn ghost" href="{% url 'login' %}">Sign in</a>
-<a class="btn" href="{% url 'signup' %}">Create account</a>
+<a class="btn" href="{% url 'register' %}">Create account</a>
 <!-- State B: logged in (uncomment to preview)
 <div class="user">
 <img class="avatar" src="images/avatar.png" alt="User"/>
@@ -42,7 +42,7 @@
 <li class="card">
 <a href="{% url 'course_detail' course.id %}">
 <div class="card-image">
-<img src="{% static "image/courses/python.png" %}" alt="Python Foundations">
+<img src={% static "image/courses/python.png" %} alt="Python Foundations">
 </div>
 <div class="card-body">
 <div class="card-meta">

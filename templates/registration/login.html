@@ -1,36 +1,46 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-  <body>
-    <header class="site-header">
-      <div class="nav container">
-        <a class="brand" href="{% url 'courses' %}">Home</a>
-      </div>
-    </header>
+  <header class="site-header">
+    <div class="nav container">
+      <a class="brand" href="{% url 'courses' %}">Home</a>
+    </div>
+  </header>
 
-    <main class="auth-page container">
-      <section class="auth-card">
-        <h1>Welcome back</h1>
-        <p class="muted">Sign in to continue learning</p>
-        <form class="form" action="#">
-          <label class="field">
-            <span>Email</span>
-            <input type="email" placeholder="you@example.com" required />
-          </label>
-          <label class="field">
-            <span>Password</span>
-            <input type="password" placeholder="••••••••" required />
-          </label>
-          <div class="row between">
-            <label class="checkbox"><input type="checkbox" /> <span>Remember me</span></label>
-            <a class="link small" href="#">Forgot password?</a>
-          </div>
-          <button class="btn w-100" type="submit">Sign in</button>
-        </form>
-        <p class="muted center">
-          No account? <a class="link" href="register.html">Create one</a>
-        </p>
-      </section>
-    </main>
-  </body>
+  <main class="auth-page container">
+    <section class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to continue learning</p>
+
+      {# show non-field errors (e.g., bad credentials) #}
+      {% if form and form.non_field_errors %}
+        <div class="error">{{ form.non_field_errors }}</div>
+      {% endif %}
+
+      <form class="form" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+
+        <label class="field">
+          <span>Username</span>
+          <input type="text" name="username" placeholder="Enter your username" required />
+          {% if form and form.username.errors %}<small class="error">{{ form.username.errors.0 }}</small>{% endif %}
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input type="password" name="password" placeholder="••••••••" required />
+          {% if form and form.password.errors %}<small class="error">{{ form.password.errors.0 }}</small>{% endif %}
+        </label>
+
+       
+
+        <button class="btn w-100" type="submit">Sign in</button>
+      </form>
+
+      <p class="muted center">
+        No account? <a class="link" href="{% url 'register' %}">Create one</a>
+      </p>
+    </section>
+  </main>
 {% endblock %}
