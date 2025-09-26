@@ -19,6 +19,9 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = (
         "title", "description", "level", "created_at", "instructor"
     )
+    prepopulated_fields = {
+        "slug": ('title', )
+    }
     
 
 

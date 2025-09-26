@@ -27,6 +27,7 @@ class Course(models.Model):
     ]
 
     title = models.CharField(blank=True, max_length=50)
+    slug = models.SlugField(blank=True, max_length=500)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='courses', blank=True)
     level = models.CharField(max_length=20, choices=LEVEL, default=BEGINNER)

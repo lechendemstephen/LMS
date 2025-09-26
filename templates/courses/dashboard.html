@@ -1,0 +1,174 @@
+{% load static %}
+<!-- ====== dashboard.html (User Dashboard) ====== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href={% static 'css/dashboard.css' %} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <button class="hamburger" aria-label="Open menu" onclick="document.documentElement.classList.toggle('nav-open')">
+        <!-- no JS required if you don't want: you can remove this button and nav-open class -->
+        <span></span><span></span><span></span>
+      </button>
+      <a class="brand" href="{% url 'courses' %}">Home</a>
+      <div class="searchbar">
+        <input type="search" placeholder="Search courses, lessons…" />
+      </div>
+      <div class="topbar__actions">
+        <a class="btn ghost" href="#">My Courses</a>
+        <div class="avatar">
+          <img src={% static 'image/courses/pic.png' %} alt="User" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar__inner">
+      <div class="user">
+        <img class="user__photo" src={% static 'image/courses/pic.png' %} alt="User" />
+        <div class="user__meta">
+          <strong>Welcome, {{ request.user.username }}</strong>
+          
+        </div>
+      </div>
+      <nav class="menu">
+        <a class="menu__item active" href="#"><span>Dashboard</span></a>
+        <a class="menu__item" href="#"><span>Continue Learning</span></a>
+        <a class="menu__item" href="#"><span>My Courses</span></a>
+        <a class="menu__item" href="#"><span>Achievements</span></a>
+        <a class="menu__item" href="#"><span>Profile</span></a>
+        <a class="menu__item" href="#"><span>Settings</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <section class="welcome card">
+      <div class="welcome__text">
+        <h1>Good morning, {{ request.user.username }} 👋</h1>
+        <p class="muted">Pick up where you left off and keep your streak alive.</p>
+        <div class="welcome__cta">
+          <a class="btn" href="#">Continue lesson</a>
+          <a class="btn ghost" href="#">Browse courses</a>
+        </div>
+      </div>
+      <div class="welcome__art">
+        <img src="images/hero-learning.jpg" alt="Learning" />
+      </div>
+    </section>
+
+    <!-- KPI cards -->
+    <section class="kpis">
+      <div class="kpi card">
+        <div class="kpi__label">Total Courses</div>
+        <div class="kpi__value">12</div>
+        <div class="kpi__sub muted">3 new this month</div>
+      </div>
+      <div class="kpi card">
+        <div class="kpi__label">In Progress</div>
+        <div class="kpi__value">5</div>
+        <div class="progress"><span style="width:60%"></span></div>
+        <div class="kpi__sub muted">60% average progress</div>
+      </div>
+      <div class="kpi card">
+        <div class="kpi__label">Completed</div>
+        <div class="kpi__value">7</div>
+        <div class="kpi__sub muted">Great job! 🎉</div>
+      </div>
+      <div class="kpi card">
+        <div class="kpi__label">Hours Learned</div>
+        <div class="kpi__value">42h</div>
+        <div class="kpi__sub muted">Streak: 6 days</div>
+      </div>
+    </section>
+
+    <!-- Continue learning -->
+    <section class="continue card">
+      <div class="continue__media">
+        <img src="images/django.jpg" alt="Course cover" />
+      </div>
+      <div class="continue__body">
+        <h2>Django for the Web</h2>
+        <p class="muted">Lesson 6 · Class-Based Views — 22m remaining</p>
+        <div class="progress large"><span style="width:72%"></span></div>
+        <div class="actions">
+          <a class="btn" href="#">Resume</a>
+          <a class="btn ghost" href="#">Course details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- My courses -->
+    <section class="courses">
+      <header class="section__header">
+        <h3>My Courses</h3>
+        <a class="link" href="#">View all →</a>
+      </header>
+      <ul class="grid">
+        <li class="course card">
+          <div class="course__thumb"><img src="images/python.jpg" alt="Python"/></div>
+          <div class="course__body">
+            <h4>Python Foundations</h4>
+            <p class="muted">Beginner · 12h</p>
+            <div class="progress"><span style="width:35%"></span></div>
+          </div>
+        </li>
+        <li class="course card">
+          <div class="course__thumb"><img src="images/frontend.jpg" alt="Frontend"/></div>
+          <div class="course__body">
+            <h4>Modern Frontend</h4>
+            <p class="muted">Intermediate · 9h</p>
+            <div class="progress"><span style="width:58%"></span></div>
+          </div>
+        </li>
+        <li class="course card">
+          <div class="course__thumb"><img src="images/data.jpg" alt="Data"/></div>
+          <div class="course__body">
+            <h4>Data Pipelines</h4>
+            <p class="muted">Advanced · 16h</p>
+            <div class="progress"><span style="width:80%"></span></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Achievements & Activity -->
+    <section class="grid-2">
+      <div class="achievements card">
+        <header class="section__header">
+          <h3>Achievements</h3>
+        </header>
+        <ul class="badges">
+          <li class="badge"><span>🏅</span> First Course</li>
+          <li class="badge"><span>🔥</span> 5‑Day Streak</li>
+          <li class="badge"><span>🚀</span> Fast Finisher</li>
+        </ul>
+      </div>
+      <div class="activity card">
+        <header class="section__header">
+          <h3>Recent Activity</h3>
+        </header>
+        <ol class="timeline">
+          <li><span class="dot"></span><div><strong>Completed</strong> Lesson 5 — Forms & Validation <span class="muted">· 2h ago</span></div></li>
+          <li><span class="dot"></span><div><strong>Earned</strong> badge — 5‑Day Streak <span class="muted">· 1d ago</span></div></li>
+          <li><span class="dot"></span><div><strong>Enrolled</strong> in Data Pipelines <span class="muted">· 3d ago</span></div></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+

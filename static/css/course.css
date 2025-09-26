@@ -54,3 +54,8 @@ h1{font-size:28px;margin:0}
 .row{display:flex;gap:12px}
 .row.between{justify-content:space-between;align-items:center}
 .center{text-align:center}
+
+
+
+.flash { margin:12px 0; display:grid; gap:8px; }
+.flash__item { background:#0d1530; border:1px solid #243057; color:#e8ecff; padding:10px 12px; border-radius:10px; }
